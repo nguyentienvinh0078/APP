@@ -14,14 +14,286 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(858, 654)
-        MainWindow.setStyleSheet("border-radius: 10px;\n"
-"border: 5px solid red;")
+        MainWindow.resize(857, 610)
+        MainWindow.setStyleSheet("* {\n"
+"    \n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(262, 214, 285, 207))
-        self.widget.setObjectName("widget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self._0app = QtWidgets.QFrame(self.centralwidget)
+        self._0app.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self._0app.setFrameShadow(QtWidgets.QFrame.Raised)
+        self._0app.setObjectName("_0app")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self._0app)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self._01folder_frame = QtWidgets.QFrame(self._0app)
+        self._01folder_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self._01folder_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self._01folder_frame.setObjectName("_01folder_frame")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self._01folder_frame)
+        self.horizontalLayout_2.setContentsMargins(8, 8, 8, 8)
+        self.horizontalLayout_2.setSpacing(8)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.folder_line_edit = QtWidgets.QLineEdit(self._01folder_frame)
+        self.folder_line_edit.setMinimumSize(QtCore.QSize(400, 36))
+        self.folder_line_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.folder_line_edit.setStyleSheet("* {\n"
+"border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"padding: 0 8px;\n"
+"\n"
+"background-color: rgba(0, 0, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover {\n"
+"    border:2px solid rgb(12, 245, 12);\n"
+"}")
+        self.folder_line_edit.setObjectName("folder_line_edit")
+        self.horizontalLayout_2.addWidget(self.folder_line_edit)
+        self.folder_btn = QtWidgets.QPushButton(self._01folder_frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.folder_btn.sizePolicy().hasHeightForWidth())
+        self.folder_btn.setSizePolicy(sizePolicy)
+        self.folder_btn.setMinimumSize(QtCore.QSize(100, 36))
+        self.folder_btn.setMaximumSize(QtCore.QSize(130, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("roboto")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.folder_btn.setFont(font)
+        self.folder_btn.setStyleSheet("* {\n"
+"border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"\n"
+"background-color: rgba(0, 0, 0, 0);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover {\n"
+"    border:2px solid rgb(12, 245, 12);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    border-color: rgb(230, 5, 64);    \n"
+"}")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/folder.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.folder_btn.setIcon(icon)
+        self.folder_btn.setIconSize(QtCore.QSize(24, 24))
+        self.folder_btn.setObjectName("folder_btn")
+        self.horizontalLayout_2.addWidget(self.folder_btn)
+        self.verticalLayout.addWidget(self._01folder_frame, 0, QtCore.Qt.AlignTop)
+        self._02download_frame = QtWidgets.QFrame(self._0app)
+        self._02download_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self._02download_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self._02download_frame.setObjectName("_02download_frame")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self._02download_frame)
+        self.horizontalLayout_3.setContentsMargins(8, 8, 8, 8)
+        self.horizontalLayout_3.setSpacing(8)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.url_line_edit = QtWidgets.QLineEdit(self._02download_frame)
+        self.url_line_edit.setMinimumSize(QtCore.QSize(0, 36))
+        self.url_line_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.url_line_edit.setStyleSheet("* {\n"
+"border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"padding: 0 8px;\n"
+"\n"
+"background-color: rgba(0, 0, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover {\n"
+"    border:2px solid rgb(12, 245, 12);\n"
+"}")
+        self.url_line_edit.setObjectName("url_line_edit")
+        self.horizontalLayout_3.addWidget(self.url_line_edit)
+        self.download_btn = QtWidgets.QPushButton(self._02download_frame)
+        self.download_btn.setMinimumSize(QtCore.QSize(100, 36))
+        self.download_btn.setMaximumSize(QtCore.QSize(130, 16777215))
+        self.download_btn.setStyleSheet("* {\n"
+"border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"\n"
+"background-color: rgba(0, 0, 0, 0);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover {\n"
+"    border:2px solid rgb(12, 245, 12);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    border-color: rgb(230, 5, 64);    \n"
+"}")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/download.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.download_btn.setIcon(icon1)
+        self.download_btn.setIconSize(QtCore.QSize(24, 24))
+        self.download_btn.setObjectName("download_btn")
+        self.horizontalLayout_3.addWidget(self.download_btn)
+        self.verticalLayout.addWidget(self._02download_frame, 0, QtCore.Qt.AlignTop)
+        self._03msg_frame = QtWidgets.QFrame(self._0app)
+        self._03msg_frame.setMaximumSize(QtCore.QSize(16777215, 0))
+        self._03msg_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self._03msg_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self._03msg_frame.setObjectName("_03msg_frame")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self._03msg_frame)
+        self.horizontalLayout_4.setContentsMargins(8, 8, 8, 8)
+        self.horizontalLayout_4.setSpacing(8)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.label_3 = QtWidgets.QLabel(self._03msg_frame)
+        self.label_3.setText("")
+        self.label_3.setTextFormat(QtCore.Qt.AutoText)
+        self.label_3.setPixmap(QtGui.QPixmap(":/icons/icons/activity.svg"))
+        self.label_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout_4.addWidget(self.label_3)
+        self.msg = QtWidgets.QLabel(self._03msg_frame)
+        self.msg.setStyleSheet("* {\n"
+"border-radius: 4px;\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"font-weight: bold;\n"
+"\n"
+"background-color: rgba(0, 0, 0, 0);\n"
+"}")
+        self.msg.setObjectName("msg")
+        self.horizontalLayout_4.addWidget(self.msg)
+        self.label_2 = QtWidgets.QLabel(self._03msg_frame)
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap(":/icons/icons/activity.svg"))
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_4.addWidget(self.label_2)
+        self.verticalLayout.addWidget(self._03msg_frame, 0, QtCore.Qt.AlignTop)
+        self._04main_frame = QtWidgets.QFrame(self._0app)
+        self._04main_frame.setMinimumSize(QtCore.QSize(0, 0))
+        self._04main_frame.setMaximumSize(QtCore.QSize(16777215, 0))
+        self._04main_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self._04main_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self._04main_frame.setObjectName("_04main_frame")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self._04main_frame)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_5.setSpacing(8)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.table_content = QtWidgets.QTableWidget(self._04main_frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.table_content.sizePolicy().hasHeightForWidth())
+        self.table_content.setSizePolicy(sizePolicy)
+        self.table_content.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("roboto")
+        font.setPointSize(-1)
+        self.table_content.setFont(font)
+        self.table_content.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.table_content.setAutoFillBackground(False)
+        self.table_content.setStyleSheet("#table_content {\n"
+"border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"}\n"
+"\n"
+"\n"
+"* {\n"
+"font-family: roboto;\n"
+"font-size: 14px;\n"
+"}\n"
+" ")
+        self.table_content.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.table_content.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.table_content.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.table_content.setDragEnabled(False)
+        self.table_content.setAlternatingRowColors(False)
+        self.table_content.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        self.table_content.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
+        self.table_content.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.table_content.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerItem)
+        self.table_content.setShowGrid(True)
+        self.table_content.setGridStyle(QtCore.Qt.SolidLine)
+        self.table_content.setWordWrap(False)
+        self.table_content.setObjectName("table_content")
+        self.table_content.setColumnCount(4)
+        self.table_content.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.table_content.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.table_content.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.table_content.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.table_content.setHorizontalHeaderItem(3, item)
+        self.table_content.horizontalHeader().setVisible(True)
+        self.table_content.horizontalHeader().setCascadingSectionResizes(True)
+        self.table_content.horizontalHeader().setDefaultSectionSize(160)
+        self.table_content.horizontalHeader().setHighlightSections(True)
+        self.table_content.horizontalHeader().setMinimumSectionSize(50)
+        self.table_content.horizontalHeader().setSortIndicatorShown(False)
+        self.table_content.horizontalHeader().setStretchLastSection(False)
+        self.table_content.verticalHeader().setVisible(False)
+        self.table_content.verticalHeader().setCascadingSectionResizes(False)
+        self.table_content.verticalHeader().setDefaultSectionSize(26)
+        self.table_content.verticalHeader().setHighlightSections(True)
+        self.table_content.verticalHeader().setMinimumSectionSize(26)
+        self.table_content.verticalHeader().setSortIndicatorShown(False)
+        self.table_content.verticalHeader().setStretchLastSection(False)
+        self.horizontalLayout_5.addWidget(self.table_content)
+        self.sub_content = QtWidgets.QListWidget(self._04main_frame)
+        self.sub_content.setMinimumSize(QtCore.QSize(200, 0))
+        self.sub_content.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.sub_content.setStyleSheet("border: 2px solid rgb(230, 5, 64);\n"
+"border-radius: 4px;\n"
+"\n"
+"font-family: roboto;\n"
+"font-size: 14px;")
+        self.sub_content.setObjectName("sub_content")
+        self.horizontalLayout_5.addWidget(self.sub_content)
+        self.verticalLayout.addWidget(self._04main_frame, 0, QtCore.Qt.AlignTop)
+        self.horizontalLayout.addWidget(self._0app, 0, QtCore.Qt.AlignTop)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -30,4 +302,18 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.folder_line_edit.setPlaceholderText(_translate("MainWindow", "Thư mục lưu trữ...."))
+        self.folder_btn.setText(_translate("MainWindow", "Thư mục lưu"))
+        self.url_line_edit.setPlaceholderText(_translate("MainWindow", "Nhập link tải xuống"))
+        self.download_btn.setText(_translate("MainWindow", "Tải xuống"))
+        self.msg.setText(_translate("MainWindow", "...Đang lấy dữ liệu vui lòng đợi..."))
+        self.table_content.setSortingEnabled(False)
+        item = self.table_content.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "STT"))
+        item = self.table_content.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Video ID"))
+        item = self.table_content.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Link không nhãn"))
+        item = self.table_content.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Trạng thái"))
 import icons_rc
