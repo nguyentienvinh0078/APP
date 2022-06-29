@@ -1,0 +1,8 @@
+requests==2.22.0
+pyinstaller==4.10
+autopep8
+requests
+jsons
+auto-py-to-exe
+pyqt5
+tools

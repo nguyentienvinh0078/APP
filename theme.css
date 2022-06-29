@@ -1,0 +1,17 @@
+/* dark background: rgb(9, 5, 13)
+light dark: rgb(24, 24, 36)
+Font color: rgb(255, 255, 255) */
+
+* {
+    background-color:rgb(9, 5, 13);
+    color: rgb(255, 255, 255);
+    background-color: rgb(17, 16, 26);
+    background-color: rgb(24, 24, 36);
+    border-color: rgb(230, 5, 64);    
+    
+}
+
+* {
+    border: 2px solid rgb(230, 5, 64);
+    border-radius: 4px;
+}
