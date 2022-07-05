@@ -1,5 +1,5 @@
 import os, re, time, sys, json, requests
-from Base_APP import *
+from base_src.Base_APP import Base_APP
 
 class TikTok(Base_APP):
     def __init__(self):
@@ -26,7 +26,7 @@ class TikTok(Base_APP):
         video_data_info = []
         real_tiktok_url = self.get_real_url(tiktok_url)
         url_type = self.get_url_type(real_tiktok_url)
-        index = 0
+        video_index = 1
         if url_type == self.multiple_video_type:
             nickname = self.get_sec_uid(real_tiktok_url)
             user_id = self.get_user_id(nickname)
@@ -37,53 +37,52 @@ class TikTok(Base_APP):
                 response = self.requests_deal(next_data_api)
                 
                 if response.status_code == 200:
-                    js = response.json()
+                    js_list_item = response.json()
 
-                    item_list_data = js['body']['itemListData']
-                    max_cursor = js['body']['maxCursor']
-                    done = not js['body']['hasMore']
+                    item_list_data = js_list_item['body']['itemListData']
+                    max_cursor = js_list_item['body']['maxCursor']
+                    done = not js_list_item['body']['hasMore']
 
                     for video_item in item_list_data:
                         video_id = str(video_item['itemInfos']['id'])
                         
                         try:
                             video_api = f'https://api.tiktokv.com/aweme/v1/multi/aweme/detail/?aweme_ids=%5B{video_id}%5D'
-                            js = json.loads(self.requests_deal(video_api).text)
+                            js_video = json.loads(self.requests_deal(video_api).text)
                            
-                            nickname = str(js["aweme_details"][0]['author']["unique_id"]) #tiktok
-                            url_nowatermark = str(js["aweme_details"][0]["video"]["play_addr"]["url_list"][0]) #tiktok
+                            nickname = str(js_video["aweme_details"][0]['author']["unique_id"]) #tiktok
+                            url_nowatermark = str(js_video["aweme_details"][0]["video"]["play_addr"]["url_list"][0]) #tiktok
                         except Exception as bug:
                             print(f"nickname, url_nowatermark: {bug}")
                             pass
                         
                         video_data_info.append({
-                            'video_index': str(index+1),
-                            'video_id': video_id,
+                            'video_index': str(video_index),
                             'nickname': nickname,
+                            'video_id': video_id,
                             'video_url': f'https://www.tiktok.com/@{nickname}/video/{video_id}' ,
                             'url_nowatermark': url_nowatermark,
                             'save_folder': os.path.join(self.save_path, url_type, nickname),
                         })
 
-                        print(f'>> Index: {index+1:>2} -- Nickname: {nickname} -- ID: {video_id}')
-                        print('-' * 120)
-                        index = index + 1
+                        print(f'>> Index: {video_index:>2} -- ID: {video_id}')
+                        video_index = video_index + 1
 
         elif url_type == self.video_type:
             video_id = self.get_video_id(real_tiktok_url)
 
             try:
                 video_api = f'https://api.tiktokv.com/aweme/v1/multi/aweme/detail/?aweme_ids=%5B{video_id}%5D'
-                js = json.loads(self.requests_deal(video_api).text)
+                js_video = json.loads(self.requests_deal(video_api).text)
 
-                nickname = str(js["aweme_details"][0]['author']["unique_id"]) #tiktok
-                url_nowatermark = str(js["aweme_details"][0]["video"]["play_addr"]["url_list"][0]) #tiktok
+                nickname = str(js_video["aweme_details"][0]['author']["unique_id"]) #tiktok
+                url_nowatermark = str(js_video["aweme_details"][0]["video"]["play_addr"]["url_list"][0]) #tiktok
             except Exception as bug:
                 print(f"nickname, url_nowatermark: {bug}")
                 pass
 
             video_data_info.append({
-                'video_index': str(index+1),
+                'video_index': str(video_index),
                 'video_id': video_id,
                 'nickname': nickname,
                 'video_url': f'https://www.tiktok.com/@{nickname}/video/{video_id}',
@@ -91,9 +90,8 @@ class TikTok(Base_APP):
                 'save_folder': os.path.join(self.save_path, url_type, nickname),
             })
 
-            print(f'>> Index: {index+1:>2} -- Nickname: {nickname} -- ID: {video_id}')
-            print('-' * 120)
-            index = index + 1
+            print(f'>> Index: {video_index:>2} -- ID: {video_id}')
+            video_index = video_index + 1
         
         if json_output:
             save_path = video_data_info[0]['save_folder']

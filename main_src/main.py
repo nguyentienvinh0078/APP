@@ -1,9 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView, QSizePolicy, QAbstractScrollArea
+from PyQt5.QtWidgets import QApplication, QMainWindow, c, QTableWidgetItem, QHeaderView, QSizePolicy, QAbstractScrollArea
 from PyQt5.QtCore import Qt, QPoint, QThread, pyqtSignal
 
 from app import Ui_MainWindow
-from base_src.TikTok import *
 
 class ThreadClassTikTokGetData(QThread):
     anySingal_download_btn = pyqtSignal(list)

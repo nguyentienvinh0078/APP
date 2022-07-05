@@ -36,7 +36,7 @@ class Base_APP():
         with open(json_path, mode='w', encoding='utf-8') as json_file:
             json.dump(json_data, json_file, indent=4, separators=(',',': '))
     
-    def read_json_file(self, json_data, json_path):
+    def read_json_file(self, json_path):
         data = []
         with open(json_path, mode='r', encoding='utf-8') as json_data:
             data = json.load(json_data)
@@ -45,6 +45,7 @@ class Base_APP():
     def requests_deal(self, url, max_again=3):
         for again_number in range(max_again):
             try:
+                time.sleep(0.25)
                 return requests.get(url=url, headers=self.headers, timeout=25)
             except Exception as bug:
                 print(f"requestsDeal Function: {bug}")
